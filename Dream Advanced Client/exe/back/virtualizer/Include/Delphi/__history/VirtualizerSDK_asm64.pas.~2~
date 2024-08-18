@@ -1,0 +1,47 @@
+unit VirtualizerSDK_asm64;
+
+interface
+
+procedure VIRTUALIZER_START();stdcall;
+procedure VIRTUALIZER_END();stdcall;
+
+implementation
+
+procedure VIRTUALIZER_START();
+asm
+    push    rax
+    push    rbx
+    push    rcx
+
+    mov     eax, 'CV'
+    mov     ebx, 103
+    mov     ecx, 'CV'
+    add     ebx, eax
+    add     ecx, eax
+
+    pop     rcx
+    pop     rbx
+    pop     rax
+    ret
+end;
+
+procedure VIRTUALIZER_END();
+asm
+    push    rax
+    push    rbx
+    push    rcx
+
+    mov     eax, 'CV'
+    mov     ebx, 503
+    mov     ecx, 'CV'
+    add     ebx, eax
+    add     ecx, eax
+
+    pop     rcx
+    pop     rbx
+    pop     rax
+    ret
+end;
+
+end.
+
